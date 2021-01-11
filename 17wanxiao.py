@@ -117,6 +117,8 @@ def receive_check_in(token, custom_id, post_dict):
         "longitude": "",  # 请在此处填写需要打卡位置的longitude
         "latitude": "",  # 请在此处填写需要打卡位置的latitude
         "token": token,
+        if post_dict['address']==address
+            post_dict['address']="卧龙区贾寨村";
     }
     headers = {
         'referer': f'https://reportedh5.17wanxiao.com/nCovReport/index.html?token={token}&customerId={custom_id}',
