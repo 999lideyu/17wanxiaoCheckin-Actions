@@ -323,7 +323,7 @@ def server_push(sckey, desp):
         logging.info('qq推送服务成功')
     else:
         logging.warning('qq推送服务出错') 
-    res = requests.post(send_url, data=params)
+    """res = requests.post(send_url, data=params)
     # {"errno":0,"errmsg":"success","dataset":"done"}
     # logging.info(res.text)
     try:
@@ -332,7 +332,7 @@ def server_push(sckey, desp):
         else:
             logging.warning('Server酱推送服务失败')
     except:
-        logging.warning("Server酱不起作用了，可能是你的sckey出现了问题")
+        logging.warning("Server酱不起作用了，可能是你的sckey出现了问题")"""
 
     """Server酱推送：https://sc.ftqq.com/3.version
     :param sckey: 通过官网注册获取，获取教程：https://github.com/ReaJason/17wanxiaoCheckin-Actions/blob/master/README_LAST.md#%E4%BA%8Cserver%E9%85%B1%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%94%B3%E8%AF%B7
