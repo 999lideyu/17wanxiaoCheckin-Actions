@@ -306,13 +306,40 @@ def check_in(username, password):
 
 
 def server_push(sckey, desp):
-    """
-    Server酱推送：https://sc.ftqq.com/3.version
+    def server_push(sckey, desp):
+    send_url = f"https://sc.ftqq.com/{sckey}.send"
+    params = {
+        "text": "健康打卡推送通知",
+        "desp": desp
+    }
+    params2 = {
+        "msg": "健康打卡推送通知" + desp
+    }                     
+    # 发送消息
+    res2 = requests.post("https://qmsg.zendee.cn/send/b5721e2fe692ae6f29417387037bfee2", data=params2)
+    if res2.json()["success"] == False:
+        logging.warning('qq推送服务失败')
+    elif res2.json()["success"] == True:
+        logging.info('qq推送服务成功')
+    else:
+        logging.warning('qq推送服务出错') 
+    res = requests.post(send_url, data=params)
+    # {"errno":0,"errmsg":"success","dataset":"done"}
+    # logging.info(res.text)
+    try:
+        if not res.json()['errno']:
+            logging.info('Server酱推送服务成功')
+        else:
+            logging.warning('Server酱推送服务失败')
+    except:
+        logging.warning("Server酱不起作用了，可能是你的sckey出现了问题")
+
+    """Server酱推送：https://sc.ftqq.com/3.version
     :param sckey: 通过官网注册获取，获取教程：https://github.com/ReaJason/17wanxiaoCheckin-Actions/blob/master/README_LAST.md#%E4%BA%8Cserver%E9%85%B1%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%94%B3%E8%AF%B7
     :param desp: 需要推送的内容
     :return:
     """
-    send_url = f"https://sc.ftqq.com/{sckey}.send"
+   """send_url = f"https://sc.ftqq.com/{sckey}.send"
     params = {
         "text": "健康打卡推送通知",
         "desp": desp
@@ -328,7 +355,7 @@ def server_push(sckey, desp):
             logging.warning('Server酱推送服务失败')
     except:
         logging.warning("Server酱不起作用了，可能是你的sckey出现了问题")
-
+"""
 
 def get_custom_id(token):
     """
