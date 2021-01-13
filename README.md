@@ -1,6 +1,6 @@
 # 🌈17wanxiaoCheckin-Actions
 
-**🚀2021.01.08：增加一些代码注释方便大家看懂代码，编写 Wiki方 便提供 帮助的的de **
+**🚀2021.01.08：增加一些代码注释方便大家看 懂代码，编写 Wiki方 便提供 帮助的的de **
 
 **🤺2020.12.04：缝缝补补又几天， 欢迎fork使用，感谢反 馈，好用别忘记点个star✨**
 
@@ -28,7 +28,7 @@
 
 ![enable](https://cdn.jsdelivr.net/gh/LingSiKi/images/img/enable.png)
 
-**2、我们学校要求打卡的时间不一样，这个自动运行的时间该怎么修改？**
+**2、我们学校要求打卡的时间不一样，这个自动运行的时间该怎么修 改？**
 
 进入 `.github/workflows/run.yml `修改时间
 
