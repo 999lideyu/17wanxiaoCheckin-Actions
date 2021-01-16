@@ -436,11 +436,19 @@ def run():
                         [f"| {i['description']} | {i['value']} |" for i in check['post_dict'].get('checkbox')])
                 else:
                     post_msg = "暂无详情"
+                name = check['post_dict'].get('username')
+                if not name:
+                    name = check['post_dict']['name']
+                log_info.append(f"""#### {name}{check['type']}打卡信息：
+# ```
+# {json.dumps(check['check_json'], sort_keys=True, indent=4, ensure_ascii=False)}
+# ```
+# ------
                
-| Text                           | Message |
-| :----------------------------------- | :--- |
-{post_msg}
-------
+# | Text                           | Message |
+# | :----------------------------------- | :--- |
+# {post_msg}
+# ------
 ```
 {check['res']}
 ```""")
